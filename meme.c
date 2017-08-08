@@ -17,8 +17,8 @@ int main(int argc, char **argv)
     if (!in)
         return fprintf(stderr,"Error: Could not open file %s: %s\n",argv[1],strerror(errno));
 
-    char buf[100] = {0};
-    int code[1000] = {0};
+    char buf[1000] = {0};
+    int code[10000] = {0};
     int i = 0;
     for (; strcmp(buf,"what the"); getmeme(buf,in));
     while (getmeme(buf,in)) code[i++] = meme_interp(buf);
@@ -28,8 +28,8 @@ int main(int argc, char **argv)
 
 int getmeme(char *buf, FILE *in)
 {
-    char word1[100] = {0};
-    char word2[100] = {0};
+    char word1[1000] = {0};
+    char word2[1000] = {0};
 
     if (!~fscanf(in," %s",word1))
         return 0;
